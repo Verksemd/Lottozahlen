@@ -11,11 +11,11 @@ import java.util.ArrayList;
 // done accept in constructor 6 winning numbers(name them winningNumbers)
 // done allow only 6 numbers to be selected in lotto field (buttons)
 // done once 6 numbers selected, go over grid and if selected number is among winning, color it green, otherwise red.
-public class TicketPane extends Container implements ActionListener {
+public class TicketPanel extends Container implements ActionListener {
     private ArrayList<Integer> guesses = new ArrayList<>();
     private LottoTicket ticket;
 
-    public TicketPane(LottoTicket ticket) {
+    public TicketPanel(LottoTicket ticket) {
         this.ticket = ticket;
         setLayout(new GridLayout(7, 7));
         int number = 1;

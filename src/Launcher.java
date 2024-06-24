@@ -1,5 +1,4 @@
-import Logic.LottoTicket;
-import UI.LottoPane;
+import UI.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +14,7 @@ public class Launcher extends JFrame  {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Lottozahlen Spiel");
 		this.setSize(new Dimension(800, 600));
-		this.add(new LottoPane());
+		this.add(new GamePanel());
 
 	}
 
