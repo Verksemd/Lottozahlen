@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class Game extends JFrame implements ActionListener {
+public class Game extends JFrame  {
 // here we have GUI elements
 	private JLabel lottoResultsFieldLabel;
 	private JTextArea lottoResultsArea;
@@ -30,7 +30,6 @@ public class Game extends JFrame implements ActionListener {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("Lottozahlen Spiel");
 		this.setSize(new Dimension(800, 600));
-
 		this.add(new LottoPane());
 
 	}
@@ -44,19 +43,6 @@ public class Game extends JFrame implements ActionListener {
 		this.setVisible(true);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() instanceof JButton && e.getSource() != repeatButton) {
-
-		}
-		if (e.getSource() == repeatButton) {
-			resetGame();
-		}
-	}
-
-	private void resetGame() {
-
-	}
 
 
 

@@ -9,12 +9,11 @@ public class LottoTicket {
     public Set<Integer> winningNumbers = new HashSet<>();
 
     public LottoTicket() {
-
     }
 
     public void drawNumbers() {
         Random random = new Random();
-
+        winningNumbers.clear();
         while (winningNumbers.size() < 6) {
             int number = random.nextInt(49) + 1;
             winningNumbers.add(number);
