@@ -8,9 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-// done accept in constructor 6 winning numbers(name them winningNumbers)
-// done allow only 6 numbers to be selected in lotto field (buttons)
-// done once 6 numbers selected, go over grid and if selected number is among winning, color it green, otherwise red.
 public class TicketPanel extends Container implements ActionListener {
     private ArrayList<Integer> guesses = new ArrayList<>();
     private LottoTicket ticket;
@@ -31,14 +28,7 @@ public class TicketPanel extends Container implements ActionListener {
             }
         }
     }
-    private void buttonDesign(JButton button) {
-        button.setFocusable(false);
-        button.setBackground(Color.WHITE);
-        button.setForeground(Color.BLACK);
-        button.setOpaque(true);
-        button.setBorderPainted(true);
-        button.setEnabled(true);
-    }
+
     public void reset() {
         guesses.clear();
         for (Component component : this.getComponents()) {
@@ -64,11 +54,18 @@ public class TicketPanel extends Container implements ActionListener {
         int number = Integer.parseInt(buttonNumber.getText());
         guesses.add(number);
         buttonNumber.setEnabled(false);
-
         if (guesses.size() == 6) {
             highlightWinningNumbers();
         }
+    }
 
+    private void buttonDesign(JButton button) {
+        button.setFocusable(false);
+        button.setBackground(Color.WHITE);
+        button.setForeground(Color.BLACK);
+        button.setOpaque(true);
+        button.setBorderPainted(true);
+        button.setEnabled(true);
     }
 
     private void highlightWinningNumbers() {
@@ -88,5 +85,4 @@ public class TicketPanel extends Container implements ActionListener {
             }
         }
     }
-
 }

@@ -23,7 +23,4 @@ public class LottoTicket {
     public Set<Integer> getWinningNumbers() {
         return new HashSet<>(winningNumbers);
     }
-
-
-
 }

@@ -13,12 +13,16 @@ public class GamePanel extends Container implements ActionListener {
     private TicketPanel ticketPanel;
     private LottoTicket ticket;
 
-
     public GamePanel() {
         setLayout(new GridBagLayout());
         this.addTicketPane();
         this.addRestartButton();
+    }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ticketPanel.reset();
+        ticket.drawNumbers();
     }
 
     private void addTicketPane() {
@@ -26,7 +30,7 @@ public class GamePanel extends Container implements ActionListener {
         ticket.drawNumbers();
         this.ticketPanel = new TicketPanel(ticket);
         this.add(this.ticketPanel);
-
+        ticket.getWinningNumbers().add(1);
     }
 
     private void addRestartButton() {
@@ -35,11 +39,5 @@ public class GamePanel extends Container implements ActionListener {
         repeatButton.setFont(this.gameFont);
         repeatButton.addActionListener(this);
         this.add(repeatButton);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        ticketPanel.reset();
-        ticket.drawNumbers();
     }
 }
