@@ -30,7 +30,7 @@ public class GamePanel extends Container implements ActionListener {
         ticket.drawNumbers();
         this.ticketPanel = new TicketPanel(ticket);
         this.add(this.ticketPanel);
-        ticket.getWinningNumbers().add(1);
+
     }
 
     private void addRestartButton() {

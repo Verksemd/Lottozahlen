@@ -55,7 +55,7 @@ public class TicketPanel extends Container implements ActionListener {
         guesses.add(number);
         buttonNumber.setEnabled(false);
         if (guesses.size() == 6) {
-            highlightWinningNumbers();
+            onGameEnd();
         }
     }
 
@@ -84,5 +84,44 @@ public class TicketPanel extends Container implements ActionListener {
                 }
             }
         }
+    }
+
+    private void onGameEnd() {
+        highlightWinningNumbers();
+        int value;
+        int matches = 0;
+        for (Integer guess : guesses) {
+            value = guess;
+            if (ticket.winningNumbers.contains(value)) {
+                matches++;
+            }
+        }
+
+        String prize;
+        switch (matches) {
+            case 1:
+                prize = "1 Dog \uD83D\uDC15";
+                break;
+            case 2:
+                prize = "2 Dogs \uD83D\uDC15 \uD83D\uDC15";
+                break;
+            case 3:
+                prize = "3 Dogs \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15";
+                break;
+            case 4:
+                prize = "4 Dogs \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15";
+                break;
+            case 5:
+                prize = "5 Dogs \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15";
+                break;
+            case 6:
+                prize = "6 Dogs \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15 \uD83D\uDC15";
+                break;
+            default:
+                prize = "no dog for you \uD83D\uDC4E";
+                break;
+        }
+        ImageIcon icon = new ImageIcon("resources/prizeDog.png");
+        JOptionPane.showMessageDialog(this, "You've got " + prize, "YOUR PRIZE", JOptionPane.INFORMATION_MESSAGE, icon);
     }
 }
